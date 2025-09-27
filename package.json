@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "python3 -m http.server 3000",
     "start": "python3 -m http.server 3000",
-    "build": "echo 'Static site ready'",
+    "build": "mkdir -p public && cp index.html public/ && echo 'Build complete'",
     "preview": "python3 -m http.server 4173"
   },
   "keywords": [
