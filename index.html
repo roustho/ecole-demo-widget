@@ -165,11 +165,9 @@
     <main class="main-content">
         <div class="container">
             <section class="chat-demo-section">
-                <h2>Testez notre Assistant IA Scolaire</h2>
-                <p>Cliquez sur le bouton ci-dessous pour ouvrir le chat et poser vos questions !</p>
-                <button class="demo-button" onclick="openChatWidget()">
-                    🤖 Ouvrir l'Assistant Abi
-                </button>
+                <h2>Assistant IA Scolaire disponible</h2>
+                <p>💬 Notre assistant Abi est disponible en bas à droite de votre écran pour répondre à toutes vos questions !</p>
+                <p><small>Cliquez sur l'icône de chat pour démarrer une conversation</small></p>
             </section>
 
             <h2>Bienvenue dans notre école</h2>
@@ -206,46 +204,16 @@
         </div>
     </footer>
 
-    <!-- Widget Chat -->
-    <div id="abi-chat-widget"></div>
-
+    <!-- 🤖 CHATBOT IA - Configuration exacte comme les vrais clients -->
     <script>
-        // Configuration comme un vrai client
-        window.AbiChatConfig = {
-            apiUrl: 'https://api.school.axonovia.com', // API de production
-            etablissement: 'demo-school',
-            theme: {
-                primaryColor: '#667eea',
-                secondaryColor: '#764ba2'
-            }
-        };
-
-        function openChatWidget() {
-            // Charger le widget depuis Vercel (version avec améliorations)
-            if (!document.getElementById('abi-widget-script')) {
-                const script = document.createElement('script');
-                script.id = 'abi-widget-script';
-                // URL du widget déployé sur Vercel (branche correctifs_safe)
-                script.src = 'https://ai-school-widget-git-correctifs-safe-axonovia.vercel.app/widget.js';
-                script.onload = function() {
-                    if (window.AbiChatWidget) {
-                        window.AbiChatWidget.init();
-                    }
-                };
-                document.head.appendChild(script);
-            } else {
-                // Widget déjà chargé, juste l'ouvrir
-                if (window.AbiChatWidget) {
-                    window.AbiChatWidget.init();
-                }
-            }
-        }
-
-        // Auto-charger le CSS du widget
-        const widgetCSS = document.createElement('link');
-        widgetCSS.rel = 'stylesheet';
-        widgetCSS.href = 'https://ai-school-widget-git-correctifs-safe-axonovia.vercel.app/widget.css';
-        document.head.appendChild(widgetCSS);
+      window.abiChatWidgetConfig = {
+        etablissement: "test-school",  // Identifiant de l'établissement
+        // color: "#667eea"  // Optionnel : couleur personnalisée
+      };
     </script>
+
+    <!-- Chargement du chatbot avec le loader.js -->
+    <script src="https://ai-school-widget-git-correctifs-safe-axonovia.vercel.app/loader.js" defer></script>
+    <!-- FIN CHATBOT -->
 </body>
 </html>
